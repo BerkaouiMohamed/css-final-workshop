@@ -1,96 +1,161 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.container{
-    display: flex;
+.container {
+  display: flex;
 
-margin: 10px;
-box-shadow: 2px 2px 5px black;
-}
-
-.left{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    background-image: url(https://colorlib.com/etc/cf/ContactFrom_v17/images/bg-01.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;;
-}
-.left::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+  margin: 10px;
+  box-shadow: 2px 2px 5px black;
 }
 
-.left div{
-    display: grid;
-    grid-template-columns: 80px 1fr;
-position: relative;
-    color: white;
-    z-index: 5;
-    min-height: 100px;
+.left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  background-image: url(https://colorlib.com/etc/cf/ContactFrom_v17/images/bg-01.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
-.left div p{
-    grid-column: 2/3;
-}
-.left div h1{align-self: center;
-}
-.left div i{
-    place-self: center;
-}
-
-.right{
-    padding: 50px;
-    width:  50%;
-}
-.right h1{
-    text-align: center;
-    margin-bottom: 30px;
-}
-.right form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 15px;
-    width: 100%;
-
+.left::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.right form div{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.left div {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  position: relative;
+  color: white;
+  z-index: 5;
+  min-height: 100px;
+}
+.left div p {
+  grid-column: 2/3;
+}
+.left div h1 {
+  align-self: center;
+}
+.left div i {
+  place-self: center;
+}
 
+.right {
+  padding: 50px;
+  width: 50%;
+}
+.right h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.right form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.right form div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
 }
 
 .right form div input,
 .right form div textarea,
+.right form div label {
+  grid-column: 1/3;
+  width: 100%;
+  height: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.295);
+  padding: 0 20px;
+  text-transform: uppercase;
+}
 .right form div label{
+    border-bottom: none;
+}
+
+.right form div label {
+  display: flex;
+  align-items: center;
+}
+.right form .name input:nth-child(2) {
+  grid-column: 1/2;
+}
+.right form .name input:nth-child(3) {
+  grid-column: 2/3;
+}
+.right form button {
+  width: 150px;
+  height: 50px;
+  background-color: rgb(34, 112, 34);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  align-self: center;
+}
+
+@media (max-width: 980px) {
+  .right {
+    width: 60%;
+  }
+  .left {
+    width: 40%;
+    align-items: start;
+  }
+}
+
+@media  (max-width: 768px) {
+    
+    .container{
+        flex-direction: column-reverse;
+    }
+    .left,.right{
+        width: 100%;
+        align-items: center;
+    }
+}
+@media (max-width: 580px) {
+    .right form .name input:nth-child(3),
+    .right form .name input:nth-child(2){
+        grid-column: 1/3;
+    }
+
+}
+
+input,textarea{
+    outline: none;
+}
+.input{
     grid-column: 1/3;
-    width: 100%;  
-      height: 50px;
-    border: 1px solid rgba(0, 0, 0, 0.295);
-padding: 0 20px;
+    position: relative;
+}
+
+.input .border{
+    width: 100%;
+    height: 100%;
+    position: absolute  ;
+    top: 0;
+    left: 0;
+    border: 1px solid green;
+    scale: 1.5;
+   opacity: 0;
+   transition: 0.2s cubic-bezier(.04,.77,.4,.94);
 
 }
-.right form div label{
-display: flex;
-align-items: center;
 
-
+.input input:focus +.border{
+    opacity: 1;
+    scale: 1;
 }
-.right form .name input:nth-child(2){
-   grid-column: 1/2;
-}
-.right form .name input:nth-child(3){
-    grid-column: 2/3;
- }
